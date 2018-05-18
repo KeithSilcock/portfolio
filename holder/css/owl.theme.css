@@ -26,7 +26,7 @@
 	opacity: 0.5;
 }
 /* Clickable class fix problem with hover on touch devices */
-/* Use it for non-touch hover action */
+/* Use it for non-touch hover displayFunc */
 .owl-theme .owl-controls.clickable .owl-buttons div:hover{
 	filter: Alpha(Opacity=100);/*IE7 fix*/
 	opacity: 1;
