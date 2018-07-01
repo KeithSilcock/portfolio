@@ -1,10 +1,42 @@
+.fa-linkedin,
+.fa-github {
+  font-size: 1.3em;
+}
 #counter {
   justify-content: space-around;
 }
 .fas.fa-columns {
   font-size: 2.4em;
 }
-.work-filter {
+.under_construction_container {
+  background-color: rgba(3, 3, 3, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+.under_construction_work_image {
+  mix-blend-mode: multiply;
+}
+.under_construction_banner {
+  width: 140%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 40px;
+  background-color: yellow;
+  z-index: 5;
+
+  font-size: 1.8em;
+
+  position: absolute;
+  transform: rotateZ(-27deg);
+  top: 44%;
+  left: -13%;
+  font-weight: bold;
+}
+
+.paralax_montiors,
+.paralax_tea {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 /*
 ------------------------------------------------------------------------
@@ -413,7 +445,7 @@ button:focus {
 ============================*/
 
 .home-bg {
-  background-image: url(../images/home-bg.jpg);
+  background-image: url(../images/KeithTop.png);
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -573,7 +605,7 @@ button:focus {
 
 .bg-funfact {
   position: relative;
-  background-image: url(../images/img-1.jpg);
+  background-image: url(../images/tea-time.jpg);
   background-size: cover;
   background-position: center center;
 }
@@ -650,7 +682,7 @@ button:focus {
 
 .bg-cta {
   position: relative;
-  background-image: url(../images/img-2.jpg);
+  background-image: url(../images/my_monitors.png);
   background-size: cover;
   background-position: center center;
 }
