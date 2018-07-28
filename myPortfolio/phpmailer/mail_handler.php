@@ -79,12 +79,12 @@ if(!$mail->send()) {
     $output['message'][] = $mail->ErrorInfo;
 } else {
     $output['success'] = true;
-    header("Location: https://keithsilcock.com#contact");
-    die();
+    // header("Location: https://keithsilcock.com#contact");
+    // die();
 
-    // echo '<script type="text/javascript">
-    //        window.location = "https://keithsilcock.com#contact"
-    //   </script>';
+    echo '<script type="text/javascript">
+           window.location = "https://keithsilcock.com#contact"
+      </script>';
 }
 // echo json_encode($output);
 ?>
