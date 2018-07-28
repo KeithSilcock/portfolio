@@ -8,7 +8,22 @@
 .fas.fa-columns {
   font-size: 2.4em;
 }
-.under_construction_container {
+
+.work_img img {
+  border: 1px solid #cfcfcf;
+}
+.bold {
+  font-weight: bold;
+}
+/* .work-background {
+  width: 83%;
+  height: 44%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+} */
+
+/* .under_construction_container {
   background-color: rgba(3, 3, 3, 0.5);
   overflow: hidden;
   position: relative;
@@ -31,7 +46,7 @@
   top: 44%;
   left: -13%;
   font-weight: bold;
-}
+} */
 
 .paralax_montiors,
 .paralax_tea {
