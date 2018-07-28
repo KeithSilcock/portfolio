@@ -65,13 +65,13 @@ $mail->addAddress(EMAIL_TO_ADDRESS);
 $mail->addReplyTo($message['email'], $message['name']);
 $mail->isHTML(true);
 
-$message['subject'] = "Portfolio Message from {$message['name']}";
-$message['subject'] = substr($message['subject'], 0, 78);
+$subject = "Portfolio Message from {$message['name']}";
+$subject = substr($subject, 0, 78);
 
 
 $message['message'] = nl2br($message['message']);
-$mail->Subject = $message['subject'];
-$mail->Body    = $message['message'];
+$mail->Subject = $subject;
+$mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$message['message']}");
 $mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send()) {
