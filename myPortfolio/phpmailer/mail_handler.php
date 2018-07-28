@@ -8,6 +8,7 @@ $output = [
     'messages' => [],
 ];
 
+//sanitize
 $message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 if(empty($message['name'])){
     $output['success'] = false;
@@ -23,8 +24,8 @@ if(empty($message['subject'])){
 //    $output['success'] = false;
 //    $output['message'][]='invalid email key';
 }
-$message['comments'] = filter_var($_POST['comments'], FILTER_SANITIZE_STRING);
-if(empty($message['comments'])){
+$message['message'] = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+if(empty($message['message'])){
 //    $output['success'] = false;
 //    $output['message'][]='invalid email key';
 }
@@ -58,25 +59,26 @@ $options = array(
 $mail->smtpConnect($options);
 
 $mail->From = $message['email'];
-$mail->FromName = $message['name'];
+$mail->FromName = "Porfolio: {$message['name']}";
 $mail->addAddress(EMAIL_TO_ADDRESS);
 $mail->addReplyTo($message['email'], $message['name']);
 $mail->isHTML(true);
 
-$message['subject'] = $message['name'] . 'has a message for you on your portfolio';
-$message['subject'] = substr($message['comments'], 0, 78);
+$message['subject'] = "Portfolio Message from {$message['name']}";
+$message['subject'] = substr($message['subject'], 0, 78);
+
+
+$message['message'] = nl2br($message['message']);
 $mail->Subject = $message['subject'];
-
-
-$message['comments'] = nl2br($message['comments']);
-$mail->Body    = $message['comments'];
-$mail->AltBody = htmlentities($message['comments']);
+$mail->Body    = $message['message'];
+$mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send()) {
     $output['success'] = false;
     $output['message'][] = $mail->ErrorInfo;
 } else {
     $output['success'] = true;
+    header('Location: https://keithsilcock.com#contact');
 }
 echo json_encode($output);
 ?>
