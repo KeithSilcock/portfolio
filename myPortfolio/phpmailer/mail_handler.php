@@ -1,3 +1,4 @@
+
 <?php
 require_once('email_config.php');
 require('./PHPMailer/PHPMailerAutoload.php');
@@ -80,5 +81,5 @@ if(!$mail->send()) {
     $output['success'] = true;
     header('Location: https://keithsilcock.com#contact');
 }
-echo json_encode($output);
+// echo json_encode($output);
 ?>
