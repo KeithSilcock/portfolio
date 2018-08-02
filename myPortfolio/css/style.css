@@ -15,6 +15,9 @@
 .bold {
   font-weight: bold;
 }
+.cb_edu_exp_detail {
+  width: 100%;
+}
 .work-container.container {
   /* background-image: url("../images/rainy_day.jpg");
   background-attachment: fixed;
