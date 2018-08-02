@@ -18,6 +18,9 @@
 .cb_edu_exp_detail {
   width: 100%;
 }
+.make-wider-1 {
+  max-width: 750px !important;
+}
 .work-container.container {
   /* background-image: url("../images/rainy_day.jpg");
   background-attachment: fixed;
