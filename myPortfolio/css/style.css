@@ -10,10 +10,37 @@
 }
 
 .work_img img {
-  border: 1px solid #cfcfcf;
+  border: 2px solid #cfcfcf;
 }
 .bold {
   font-weight: bold;
+}
+.cb_edu_exp_detail {
+  width: 100%;
+}
+.make-wider-1 {
+  max-width: 750px !important;
+}
+.work-container.container {
+  /* background-image: url("../images/rainy_day.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 45vh; */
+}
+
+.technologies {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+.technologies .icon {
+  width: 15%;
+  margin: 2.5% 5%;
+  text-align: center;
+}
+.technologies .icon img {
+  width: 100%;
 }
 /* .work-background {
   width: 83%;
@@ -212,7 +239,7 @@ button:focus {
 
 .section {
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
   position: relative;
   background-color: #fff;
 }
@@ -460,7 +487,7 @@ button:focus {
 ============================*/
 
 .home-bg {
-  background-image: url(../images/KeithTop.png);
+  background-image: url(../images/KeithTop.jpg);
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -697,7 +724,7 @@ button:focus {
 
 .bg-cta {
   position: relative;
-  background-image: url(../images/my_monitors.png);
+  background-image: url(../images/my_monitors.jpg);
   background-size: cover;
   background-position: center center;
 }

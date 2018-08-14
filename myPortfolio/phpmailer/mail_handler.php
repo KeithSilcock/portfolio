@@ -1,3 +1,4 @@
+
 <?php
 require_once('email_config.php');
 require('./PHPMailer/PHPMailerAutoload.php');
@@ -64,13 +65,13 @@ $mail->addAddress(EMAIL_TO_ADDRESS);
 $mail->addReplyTo($message['email'], $message['name']);
 $mail->isHTML(true);
 
-$message['subject'] = "Portfolio Message from {$message['name']}";
-$message['subject'] = substr($message['subject'], 0, 78);
+$subject = "Portfolio Message from {$message['name']}";
+$subject = substr($subject, 0, 78);
 
 
 $message['message'] = nl2br($message['message']);
-$mail->Subject = $message['subject'];
-$mail->Body    = $message['message'];
+$mail->Subject = $subject;
+$mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$message['message']}");
 $mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send()) {
@@ -78,7 +79,12 @@ if(!$mail->send()) {
     $output['message'][] = $mail->ErrorInfo;
 } else {
     $output['success'] = true;
-    header('Location: https://keithsilcock.com#contact');
+    // header("Location: https://keithsilcock.com#contact");
+    // die();
+
+    echo '<script type="text/javascript">
+           window.location = "https://keithsilcock.com#contact"
+      </script>';
 }
-echo json_encode($output);
+// echo json_encode($output);
 ?>
