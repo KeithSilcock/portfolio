@@ -40,6 +40,13 @@
   flex-flow: row wrap;
   justify-content: center;
 }
+.left{
+  max-width: 49vw;
+
+}
+.right{
+  max-width: 49vw;
+}
 .technologies .icon {
   width: 22%;
   max-width: 140px;
