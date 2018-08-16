@@ -33,7 +33,7 @@ if(empty($message['message'])){
 
 if($output['success'] !== null){
     http_response_code(400);
-    echo json_encode($output);
+    // echo json_encode($output);
     exit();
 }
 
@@ -75,16 +75,21 @@ $mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$messa
 $mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send()) {
-    $output['success'] = false;
-    $output['message'][] = $mail->ErrorInfo;
+    // $output['success'] = false;
+    // $output['message'][] = $mail->ErrorInfo;
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    $output['success'] = true;
+    // $output['success'] = true;
+    echo '<script type="text/javascript">
+           window.location = "https://keithsilcock.com#contact"
+           alert("Thank you for reaching out! \nHave a great day!")
+      </script>';
+    // echo 'Message has been sent';
     // header("Location: https://keithsilcock.com#contact");
     // die();
 
-    echo '<script type="text/javascript">
-           window.location = "https://keithsilcock.com#contact"
-      </script>';
+    
 }
 // echo json_encode($output);
 ?>
