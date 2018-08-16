@@ -24,23 +24,34 @@
 .work-container.container {
   /* background-image: url("../images/rainy_day.jpg");
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-repeat:  no-repeat;
   height: 45vh; */
 }
-
-.technologies {
-  width: 80%;
-  margin: auto;
+#education {
+  display: flex;
+}
+.education-technologies {
+  display: flex;
+  flex-flow: row;
+}
+.technologies-container {
+  padding-top: 88px;
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 .technologies .icon {
-  width: 15%;
+  width: 22%;
+  max-width: 140px;
   margin: 2.5% 5%;
   text-align: center;
 }
 .technologies .icon img {
   width: 100%;
+}
+.center {
+  display: flex;
+  justify-content: center;
 }
 /* .work-background {
   width: 83%;
