@@ -1,0 +1,21 @@
+@media screen and (max-width: 400px) {
+  #education {
+    overflow-x: hidden;
+  }
+  .education-technologies {
+    flex-flow: column;
+  }
+  .left {
+    margin: auto;
+    max-width: 90vw;
+  }
+  .right {
+    margin: auto;
+    max-width: 90vw;
+    padding-top: 25px;
+  }
+  #education .text-center.mx-auto.section-main-title p {
+    width: 90%;
+    margin: auto;
+  }
+}
