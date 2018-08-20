@@ -6,9 +6,68 @@
   justify-content: space-around;
 }
 .fas.fa-columns {
-  font-size: 2.4em;
+  font-size: 2.5em;
 }
-.under_construction_container {
+
+.work_img img {
+  border: 2px solid #cfcfcf;
+}
+.bold {
+  font-weight: bold;
+}
+.cb_edu_exp_detail {
+  width: 100%;
+}
+.make-wider-1 {
+  max-width: 850px !important;
+}
+.work-container.container {
+  /* background-image: url("../images/rainy_day.jpg");
+  background-attachment: fixed;
+  background-repeat:  no-repeat;
+  height: 45vh; */
+}
+#education {
+  display: flex;
+}
+.education-technologies {
+  display: flex;
+  flex-flow: row;
+}
+.technologies-container {
+  padding-top: 88px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.left {
+  max-width: 47vw;
+}
+.right {
+  max-width: 47vw;
+}
+.technologies .icon {
+  width: 22%;
+  max-width: 140px;
+  margin: 2.5% 5%;
+  text-align: center;
+}
+.technologies .icon img {
+  width: 100%;
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+/* .work-background {
+  width: 83%;
+  height: 44%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+} */
+
+/* .under_construction_container {
   background-color: rgba(3, 3, 3, 0.5);
   overflow: hidden;
   position: relative;
@@ -31,7 +90,7 @@
   top: 44%;
   left: -13%;
   font-weight: bold;
-}
+} */
 
 .paralax_montiors,
 .paralax_tea {
@@ -197,7 +256,7 @@ button:focus {
 
 .section {
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
   position: relative;
   background-color: #fff;
 }
@@ -445,7 +504,7 @@ button:focus {
 ============================*/
 
 .home-bg {
-  background-image: url(../images/KeithTop.png);
+  background-image: url(../images/KeithTop.jpg);
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -682,7 +741,7 @@ button:focus {
 
 .bg-cta {
   position: relative;
-  background-image: url(../images/my_monitors.png);
+  background-image: url(../images/my_monitors.jpg);
   background-size: cover;
   background-position: center center;
 }
