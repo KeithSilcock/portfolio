@@ -27,6 +27,12 @@
   background-repeat:  no-repeat;
   height: 45vh; */
 }
+.work_detail {
+}
+.img-zoom h4 {
+  margin-bottom: 5% !important;
+}
+
 #education {
   display: flex;
 }
@@ -60,8 +66,8 @@
   display: flex;
   justify-content: center;
 }
-.list-inline.fot_social.mb-0{
-  display:flex;
+.list-inline.fot_social.mb-0 {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
