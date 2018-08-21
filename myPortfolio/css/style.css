@@ -49,15 +49,21 @@
 .technologies .icon {
   width: 22%;
   max-width: 140px;
+  max-height: 140px;
   margin: 2.5% 5%;
   text-align: center;
 }
 .technologies .icon img {
-  width: 100%;
+  height: 75%;
 }
 .center {
   display: flex;
   justify-content: center;
+}
+.list-inline.fot_social.mb-0{
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 /* .work-background {
   width: 83%;
