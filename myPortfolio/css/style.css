@@ -2,11 +2,24 @@
 .fa-github {
   font-size: 1.3em;
 }
+.github-hover-color:hover {
+  color: rgb(152, 140, 245) !important;
+}
 #counter {
   justify-content: space-around;
 }
 .fas.fa-columns {
   font-size: 2.5em;
+}
+.white {
+  color: white !important;
+}
+.work_detail {
+  display: flex;
+  flex-flow: column;
+}
+.work_detail a:hover {
+  background-color: gray;
 }
 
 .work_img img {
