@@ -1,10 +1,23 @@
+.link-color {
+  color: #7578f9;
+}
+.link-color:hover {
+  color: #a8a9ff;
+}
 .fa-linkedin,
 .fa-github {
   font-size: 1.3em;
 }
+.github-hover-color {
+  color: #7d6cf5;
+}
+.work_detail a:hover .github-hover-color {
+  color: rgb(105, 85, 255);
+}
 .github-hover-color:hover {
   color: rgb(152, 140, 245) !important;
 }
+
 #counter {
   justify-content: space-around;
 }
