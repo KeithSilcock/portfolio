@@ -1,12 +1,38 @@
+.link-color {
+  color: #7578f9;
+}
+.link-color:hover {
+  color: #a8a9ff;
+}
 .fa-linkedin,
 .fa-github {
   font-size: 1.3em;
 }
+.github-hover-color {
+  color: #7d6cf5;
+}
+.work_detail a:hover .github-hover-color {
+  color: rgb(105, 85, 255);
+}
+.github-hover-color:hover {
+  color: rgb(152, 140, 245) !important;
+}
+
 #counter {
   justify-content: space-around;
 }
 .fas.fa-columns {
   font-size: 2.5em;
+}
+.white {
+  color: white !important;
+}
+.work_detail {
+  display: flex;
+  flex-flow: column;
+}
+.work_detail a:hover {
+  background-color: gray;
 }
 
 .work_img img {
@@ -27,6 +53,13 @@
   background-repeat:  no-repeat;
   height: 45vh; */
 }
+.work_detail {
+  padding: 0 !important;
+}
+.img-zoom h4 {
+  margin-bottom: 5% !important;
+}
+
 #education {
   display: flex;
 }
@@ -49,15 +82,21 @@
 .technologies .icon {
   width: 22%;
   max-width: 140px;
+  max-height: 140px;
   margin: 2.5% 5%;
   text-align: center;
 }
 .technologies .icon img {
-  width: 100%;
+  height: 75%;
 }
 .center {
   display: flex;
   justify-content: center;
+}
+.list-inline.fot_social.mb-0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* .work-background {
   width: 83%;

@@ -1,4 +1,24 @@
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 991px) {
+  .contact-me {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  /* .contact-me-item:first-of-type {
+    margin-right: 5%;
+  }
+  .contact-me-item:last-of-type {
+    margin-left: 5%;
+  } */
+  .work-filter {
+    justify-content: center;
+  }
+  .work_item {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 769px) {
   #education {
     overflow-x: hidden;
   }
@@ -17,5 +37,17 @@
   #education .text-center.mx-auto.section-main-title p {
     width: 90%;
     margin: auto;
+  }
+  .work_item {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .contact-me {
+    display: flex;
+    flex-flow: column;
+    /* justify-content: space-evenly;
+    align-items: center; */
   }
 }
