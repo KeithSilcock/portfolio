@@ -2,6 +2,25 @@
 <?php
 require_once('email_config.php');
 require('./PHPMailer/PHPMailerAutoload.php');
+require_once "recaptchalib.php";
+
+
+$secret = $_SERVER['recaptcha'];
+echo $secret;
+
+// empty response
+$response = null;
+ 
+// check secret key
+$reCaptcha = new ReCaptcha($secret);
+
+if ($_POST["g-recaptcha-response"]) {
+    $response = $reCaptcha->verifyResponse(
+        $_SERVER["REMOTE_ADDR"],
+        $_POST["g-recaptcha-response"]
+    );
+}
+
 
 $message = [];
 $output = [
