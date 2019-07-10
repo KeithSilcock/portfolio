@@ -4,6 +4,9 @@ require_once('email_config.php');
 require('./PHPMailer/PHPMailerAutoload.php');
 require_once "recaptchalib.php";
 
+ini_set('display_errors', 'On');
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL | E_STRICT);
 
 $secret = $_SERVER['recaptcha'];
 echo $secret;
