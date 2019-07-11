@@ -25,25 +25,23 @@ if ($_POST["g-recaptcha-response"]) {
     );
 }
 
-$error = [
-    'error'=>false,
-    'message'=>"Thank you for submitting a message!"
+$output = [
+    'success'=>false,
+    'messages'=>[]
 ];
 
-echo json_encode($response);
 
 if ($response == null || !$response->success) {
-    $error['error'] = true;
-    $error['message'] = "Sorry, not today bro-bot!";
-    echo "WHOOPS!";
+    $output['success'] = false;
+    $output['messages'][] = "Sorry, not today bro-bot!";
   } 
 
 
 $message = [];
-$output = [
-    'success' => null,
-    'messages' => [],
-];
+// $output = [
+//     'success' => null,
+//     'messages' => [],
+// ];
 
 //sanitize
 $message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
@@ -110,24 +108,26 @@ $mail->Subject = $subject;
 $mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$message['message']}");
 $mail->AltBody = htmlentities($message['message']);
 
-if(!$mail->send() || $error['error']) {
-    // $output['success'] = false;
-    // $output['message'][] = $mail->ErrorInfo;
+if(!$mail->send() || !$output['success']) {
+    $output['success'] = false;
+    $output['message'][] = $mail->ErrorInfo;
 
-    echo 'Message could not be sent.' . $error['message'];
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
+    // echo 'Message could not be sent.' . $error['message'];
+    // echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    echo "HELLO!";
-    // $output['success'] = true;
-    echo '<script type="text/javascript">
-           window.location = "https://keithsilcock.com#contact"
-           alert("Thank you for reaching out! \nHave a great day!")
-      </script>';
+    // echo "HELLO!";
+    $output['success'] = true;
+    $output['message'][] = "Thank you for submitting an email!";
+
+    // echo '<script type="text/javascript">
+    //        window.location = "https://keithsilcock.com#contact"
+    //        alert("Thank you for reaching out! \nHave a great day!")
+    //   </script>';
     // echo 'Message has been sent';
     // header("Location: https://keithsilcock.com#contact");
     // die();
 
     
 }
-// echo json_encode($output);
+echo json_encode($output);
 ?>
