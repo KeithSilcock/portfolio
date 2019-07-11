@@ -65,10 +65,15 @@ if(empty($message['message'])){
 }
 
 if(!$output['success']){
-    http_response_code(400);
-    echo json_encode($output['message']) . "errored out";
-    exit();
+    $message = join($output['message']);
+    echo "<script type=\"text/javascript\">
+            window.location = \"https://keithsilcock.com#contact\"
+            alert(\"{$message}\")
+       </script>";
+    die();
 }
+
+$output['message'] = array();
 
 $mail = new PHPMailer;
 $mail->SMTPDebug = 3;           // Enable verbose debug output. Change to 0 to disable debugging output.
@@ -108,23 +113,11 @@ $mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$messa
 $mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send()) {
-    array_push($output['message'], json_encode($mail->ErrorInfo));
 
-    // echo 'Message could not be sent.' . $error['message'];
-    // echo 'Mailer Error: ' . $mail->ErrorInfo;
+    array_push($output['message'], "Sorry something went wrong with the form. Please try again!");
+    // array_push($output['message'], json_encode($mail->ErrorInfo));
 } else {
-    // echo "HELLO!";
     array_push($output['message'], "Thank you for submitting an email!");
-
-    // echo '<script type="text/javascript">
-    //        window.location = "https://keithsilcock.com#contact"
-    //        alert("Thank you for reaching out! \nHave a great day!")
-    //   </script>';
-    // echo 'Message has been sent';
-    // header("Location: https://keithsilcock.com#contact");
-    // die();
-
-    
 }
 
 $message = join($output['message']);
@@ -132,6 +125,5 @@ $message = join($output['message']);
             window.location = \"https://keithsilcock.com#contact\"
             alert(\"{$message}\")
        </script>";
-
-// echo json_encode($output) . "end of file!";
+    die();
 ?>
