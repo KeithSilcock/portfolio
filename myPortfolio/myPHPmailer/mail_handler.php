@@ -64,8 +64,9 @@ if(empty($message['message'])){
 if(!$output['success']){
     $message = join($output['message']);
     echo "<script type=\"text/javascript\">
-            window.location = \"https://keithsilcock.com#contact\"
             alert(\"{$message}\")
+            history.go(-1)
+            // window.location = \"https://keithsilcock.com#contact\"
        </script>";
     die();
 }
