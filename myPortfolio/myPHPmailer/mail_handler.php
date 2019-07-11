@@ -33,6 +33,7 @@ $error = [
 if ($response == null || $response->success) {
     $error['error'] = true;
     $error['message'] = "Sorry, not today bro-bot!";
+    echo "WHOOPS!";
   } 
 
 
