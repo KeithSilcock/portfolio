@@ -9,7 +9,7 @@ require_once('email_config.php');
 require('./PHPMailer/PHPMailerAutoload.php');
 require_once "recaptchalib.php";
 
-echo(json_encode(getenv("recaptcha")));
+echo(json_encode($_SERVER("recaptcha")));
 
 $secret = $_SERVER['recaptcha'];
 echo $secret;
