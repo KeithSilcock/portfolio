@@ -114,6 +114,7 @@ if(!$mail->send() || $error['error']) {
     echo 'Message could not be sent.' . $error['message'];
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
+    echo "HELLO!";
     // $output['success'] = true;
     echo '<script type="text/javascript">
            window.location = "https://keithsilcock.com#contact"
