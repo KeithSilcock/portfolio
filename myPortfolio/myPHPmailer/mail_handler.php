@@ -34,6 +34,7 @@ $output = [
 if ($response == null || !$response->success) {
     $output['success'] = false;
     array_push($output['message'], "Sorry, not today bro-bot!");
+    echo "whoops!";
   } 
 
 
@@ -48,11 +49,13 @@ $message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 if(empty($message['name'])){
     $output['success'] = false;
     array_push($output['messages'], 'missing name key');
+    echo "whoops 2!";
 }
 $message['email'] = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 if(empty($message['email'])){
     $output['success'] = false;
     array_push($output['messages'], 'invalid email key');
+    echo "whoops 3!";
 }
 $message['subject'] = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
 if(empty($message['subject'])){
@@ -65,9 +68,9 @@ if(empty($message['message'])){
 //    $output['message'][]='invalid email key';
 }
 
-if($output['success'] !== null){
+if(!$output['success']){
     http_response_code(400);
-    // echo json_encode($output);
+    echo json_encode($output['message']);
     exit();
 }
 
@@ -109,7 +112,6 @@ $mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$messa
 $mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send() || !$output['success']) {
-    $output['success'] = false;
     array_push($output['messages'], json_encode($mail->ErrorInfo));
 
     // echo 'Message could not be sent.' . $error['message'];
