@@ -26,7 +26,7 @@ if ($_POST["g-recaptcha-response"]) {
 }
 
 $output = [
-    'success'=>false,
+    'success'=>true,
     'message'=>[]
 ];
 
@@ -39,10 +39,6 @@ if ($response == null || !$response->success) {
 
 
 $message = [];
-// $output = [
-//     'success' => null,
-//     'messages' => [],
-// ];
 
 //sanitize
 $message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
@@ -70,7 +66,7 @@ if(empty($message['message'])){
 
 if(!$output['success']){
     http_response_code(400);
-    echo json_encode($output['message']);
+    echo json_encode($output['message']) . "errored out";
     exit();
 }
 
