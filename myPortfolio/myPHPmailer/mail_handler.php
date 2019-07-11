@@ -30,7 +30,7 @@ $error = [
     'message'=>"Thank you for submitting a message!"
 ];
 
-echo $response;
+echo json_encode($response);
 
 if ($response == null || !$response->success) {
     $error['error'] = true;
