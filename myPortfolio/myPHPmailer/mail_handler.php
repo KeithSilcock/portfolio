@@ -27,7 +27,7 @@ if ($_POST["g-recaptcha-response"]) {
 
 $output = [
     'success'=>true,
-    'message'=>[]
+    'message'=>array()
 ];
 
 
@@ -44,13 +44,13 @@ $message = [];
 $message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 if(empty($message['name'])){
     $output['success'] = false;
-    array_push($output['messages'], 'missing name key');
+    array_push($output['message'], 'missing name key');
     echo "whoops 2!";
 }
 $message['email'] = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 if(empty($message['email'])){
     $output['success'] = false;
-    array_push($output['messages'], 'invalid email key');
+    array_push($output['message'], 'invalid email key');
     echo "whoops 3!";
 }
 $message['subject'] = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
@@ -107,15 +107,14 @@ $mail->Subject = $subject;
 $mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$message['message']}");
 $mail->AltBody = htmlentities($message['message']);
 
-if(!$mail->send() || !$output['success']) {
-    array_push($output['messages'], json_encode($mail->ErrorInfo));
+if(!$mail->send()) {
+    array_push($output['message'], json_encode($mail->ErrorInfo));
 
     // echo 'Message could not be sent.' . $error['message'];
     // echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     // echo "HELLO!";
-    $output['success'] = true;
-    array_push($output['messages'], "Thank you for submitting an email!");
+    array_push($output['message'], "Thank you for submitting an email!");
 
     // echo '<script type="text/javascript">
     //        window.location = "https://keithsilcock.com#contact"
@@ -127,5 +126,12 @@ if(!$mail->send() || !$output['success']) {
 
     
 }
-echo json_encode($output) . "HELLO!";
+
+$message = join($output['message']);
+    echo "<script type=\"text/javascript\">
+            window.location = \"https://keithsilcock.com#contact\"
+            alert(\"{$message}\")
+       </script>";
+
+// echo json_encode($output) . "end of file!";
 ?>
