@@ -119,6 +119,7 @@ if(!$mail->send()) {
 }
 
 $message = join($output['message']);
+echo "Thank you!";
 if(!$output['success']){
     echo "<script type=\"text/javascript\">
             alert(\"{$message}\")
