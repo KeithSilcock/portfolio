@@ -1,8 +1,8 @@
 
 <?php
-ini_set('display_errors', 'On');
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL | E_STRICT);
+// ini_set('display_errors', 'On');
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL | E_STRICT);
 
 
 require_once('email_config.php');
@@ -25,12 +25,15 @@ if ($_POST["g-recaptcha-response"]) {
     );
 }
 
+$error = [
+    'error'=>false,
+    'message'=>"Thank you for submitting a message!"
+];
 
-if ($response != null && $response->success) {
-    echo "Hi " . $_POST["name"] . " (" . $_POST["email"] . "), thanks for submitting the form!";
-  } else {
-    echo "Sorry bro-bot, not today!";
-  }
+if ($response == null || $response->success) {
+    $error['error'] = true;
+    $error['message'] = "Sorry, not today bro-bot!";
+  } 
 
 
 $message = [];
@@ -104,10 +107,11 @@ $mail->Subject = $subject;
 $mail->Body    = nl2br("Subject:\n {$message['subject']} \n\n  Message:\n{$message['message']}");
 $mail->AltBody = htmlentities($message['message']);
 
-if(!$mail->send()) {
+if(!$mail->send() || $error['error']) {
     // $output['success'] = false;
     // $output['message'][] = $mail->ErrorInfo;
-    echo 'Message could not be sent.';
+
+    echo 'Message could not be sent.' . $error['message'];
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     // $output['success'] = true;
