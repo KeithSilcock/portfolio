@@ -30,7 +30,7 @@ $error = [
     'message'=>"Thank you for submitting a message!"
 ];
 
-if ($response == null || $response->success) {
+if ($response == null || !$response->success) {
     $error['error'] = true;
     $error['message'] = "Sorry, not today bro-bot!";
     echo "WHOOPS!";
