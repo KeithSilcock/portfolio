@@ -1,8 +1,8 @@
 
 <?php
-// ini_set('display_errors', 'On');
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', 'On');
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL | E_STRICT);
 
 
 require_once('email_config.php');
@@ -27,13 +27,13 @@ if ($_POST["g-recaptcha-response"]) {
 
 $output = [
     'success'=>false,
-    'messages'=>[]
+    'message'=>[]
 ];
 
 
 if ($response == null || !$response->success) {
     $output['success'] = false;
-    $output['messages'][] = "Sorry, not today bro-bot!";
+    array_push($output['message'], "Sorry, not today bro-bot!");
   } 
 
 
@@ -47,12 +47,12 @@ $message = [];
 $message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 if(empty($message['name'])){
     $output['success'] = false;
-    $output['message'][]='missing name key';
+    array_push($output['messages'], 'missing name key');
 }
 $message['email'] = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 if(empty($message['email'])){
     $output['success'] = false;
-    $output['message'][]='invalid email key';
+    array_push($output['messages'], 'invalid email key');
 }
 $message['subject'] = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
 if(empty($message['subject'])){
@@ -110,14 +110,14 @@ $mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send() || !$output['success']) {
     $output['success'] = false;
-    $output['message'][] = $mail->ErrorInfo;
+    array_push($output['messages'], json_encode($mail->ErrorInfo));
 
     // echo 'Message could not be sent.' . $error['message'];
     // echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     // echo "HELLO!";
     $output['success'] = true;
-    $output['message'][] = "Thank you for submitting an email!";
+    array_push($output['messages'], "Thank you for submitting an email!");
 
     // echo '<script type="text/javascript">
     //        window.location = "https://keithsilcock.com#contact"
