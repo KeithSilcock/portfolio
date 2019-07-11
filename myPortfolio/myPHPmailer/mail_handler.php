@@ -9,7 +9,8 @@ require_once('email_config.php');
 require('./PHPMailer/PHPMailerAutoload.php');
 require_once "recaptchalib.php";
 
-$secret = getenv['recaptcha'];
+
+$secret = getenv('recaptcha');
 echo $secret;
 
 // empty response
