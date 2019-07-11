@@ -11,7 +11,6 @@ require_once "recaptchalib.php";
 
 
 $secret = getenv('recaptcha');
-echo $secret;
 
 // empty response
 $response = null;
@@ -25,6 +24,13 @@ if ($_POST["g-recaptcha-response"]) {
         $_POST["g-recaptcha-response"]
     );
 }
+
+
+if ($response != null && $response->success) {
+    echo "Hi " . $_POST["name"] . " (" . $_POST["email"] . "), thanks for submitting the form!";
+  } else {
+    echo "Sorry bro-bot, not today!";
+  }
 
 
 $message = [];
