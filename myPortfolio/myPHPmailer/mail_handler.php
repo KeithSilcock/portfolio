@@ -34,7 +34,6 @@ $output = [
 if ($response == null || !$response->success) {
     $output['success'] = false;
     array_push($output['message'], "Sorry, not today bro-bot!");
-    echo "whoops!";
   } 
 
 
@@ -45,13 +44,11 @@ $message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 if(empty($message['name'])){
     $output['success'] = false;
     array_push($output['message'], 'missing name key');
-    echo "whoops 2!";
 }
 $message['email'] = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 if(empty($message['email'])){
     $output['success'] = false;
     array_push($output['message'], 'invalid email key');
-    echo "whoops 3!";
 }
 $message['subject'] = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
 if(empty($message['subject'])){
