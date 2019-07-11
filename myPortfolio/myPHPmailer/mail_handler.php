@@ -118,10 +118,18 @@ if(!$mail->send()) {
     array_push($output['message'], "Thank you for submitting an email!");
 }
 
-$message = join($output['message']);
+if(!$output['success']){
+    $message = join($output['message']);
     echo "<script type=\"text/javascript\">
-            window.location = \"https://keithsilcock.com#contact\"
             alert(\"{$message}\")
+            history.go(-1)
+            // window.location = \"https://keithsilcock.com#contact\"
        </script>";
     die();
+}else{
+    echo "<script type=\"text/javascript\">
+    window.location = \"https://keithsilcock.com#contact\"
+    alert(\"{$message}\")
+    </script>";
+}
 ?>
