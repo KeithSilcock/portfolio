@@ -129,5 +129,5 @@ if(!$mail->send() || !$output['success']) {
 
     
 }
-echo json_encode($output);
+echo json_encode($output) . "HELLO!";
 ?>
